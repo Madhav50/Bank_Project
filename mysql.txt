@@ -1,0 +1,19 @@
+CREATE TABLE `transactions` (
+  `transaction_id` int NOT NULL AUTO_INCREMENT,
+  `transaction_name` varchar(100) DEFAULT NULL,
+  `acc_number` int DEFAULT NULL,
+  `amount` int DEFAULT NULL,
+  PRIMARY KEY (`transaction_id`),
+  KEY `acc_number` (`acc_number`),
+  CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`acc_number`) REFERENCES `account` (`acc_number`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+CREATE TABLE `account` (
+  `acc_number` int NOT NULL AUTO_INCREMENT,
+  `pin` varchar(50) DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `description` varchar(200) DEFAULT NULL,
+  `balance` int DEFAULT NULL,
+  PRIMARY KEY (`acc_number`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
